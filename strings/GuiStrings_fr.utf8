@@ -87,9 +87,11 @@ menu.options.disasters = Désastres
 menu.options.sound = Son
 
 menu.difficulty = Difficulté
-menu.difficulty.0 = Facile
-menu.difficulty.1 = Moyenne
-menu.difficulty.2 = Difficile
+menu.difficulty.0 = Très Facile
+menu.difficulty.1 = Facile
+menu.difficulty.2 = Moyenne
+menu.difficulty.3 = Difficile
+menu.difficulty.4 = Très Difficile
 
 menu.disasters = Désastres
 menu.disasters.MONSTER = Monstre
