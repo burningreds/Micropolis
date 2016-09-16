@@ -41,7 +41,7 @@ public class GraphsPane extends JPanel
 		MONEY,
 		CRIME,
 		POLLUTION,
-		//!!!
+		//cambios
 		MAYAPP,
 		POP,
 		MIGR,
@@ -113,7 +113,7 @@ public class GraphsPane extends JPanel
 		c.gridy = 4;
 		toolsPane.add(makeDataBtn(GraphData.INDPOP), c);
 		
-		/*cosas nuevas */
+		//cambios
 		c.gridy = 5;
 		toolsPane.add(makeDataBtn(GraphData.MAYAPP), c);
 		
@@ -130,7 +130,7 @@ public class GraphsPane extends JPanel
 		c.gridy = 4;
 		toolsPane.add(makeDataBtn(GraphData.POLLUTION), c);
 		
-		/*cosas nuevas*/
+		//cambios
 		c.gridy = 5;
 		toolsPane.add(makeDataBtn(GraphData.MIGR), c);
 			
@@ -223,7 +223,7 @@ public class GraphsPane extends JPanel
 		case MONEY: return engine.history.money[pos];
 		case CRIME: return engine.history.crime[pos];
 		case POLLUTION: return engine.history.pollution[pos];
-		//!!!!
+		//cambios
 		case MAYAPP: return engine.history.mayapp[pos];
 		case POP: return engine.history.pop[pos];
 		case MIGR: return engine.history.migr[pos];

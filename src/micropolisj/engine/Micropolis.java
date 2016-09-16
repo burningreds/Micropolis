@@ -611,7 +611,7 @@ public class Micropolis
 
 		case 9:
 			if (cityTime % CENSUSRATE == 0) {
-				//!!
+				//cambios
 				evaluation.cityEvaluation();
 				takeCensus();
 
@@ -1283,7 +1283,7 @@ public class Micropolis
 		public int [] money = new int[240];
 		public int [] pollution = new int[240];
 		public int [] crime = new int[240];
-		//!!!
+		//cambios
 		public int [] mayapp = new int[240];
 		public int [] pop = new int[240];
 		public int [] migr = new int[240];
@@ -1650,7 +1650,7 @@ public class Micropolis
 			history.crime[i + 1] = history.crime[i];
 			history.pollution[i + 1] = history.pollution[i];
 			history.money[i + 1] = history.money[i];
-			//!!!
+			//cambios
 			history.mayapp[i + 1] = history.mayapp[i];
 			history.pop[i + 1] = history.pop[i];
 			history.migr[i + 1] = history.migr[i];
@@ -1667,7 +1667,7 @@ public class Micropolis
 		history.com[0] = comPop;
 		history.ind[0] = indPop;
 		
-		//!!!
+		//cambios
 		history.mayapp[0] = evaluation.cityYes*10000;
 		history.pop[0] = evaluation.cityPop*1000;
 		history.migr[0] = evaluation.deltaCityPop*1000;
@@ -1737,7 +1737,7 @@ public class Micropolis
 			history.crime[i + 1] = history.crime[i];
 			history.pollution[i + 1] = history.pollution[i];
 			history.money[i + 1] = history.money[i];
-			//!!!
+			//cambios
 			history.mayapp[i + 1] = history.mayapp[i];
 			history.pop[i + 1] = history.pop[i];
 			history.migr[i + 1] = history.migr[i];
@@ -1751,10 +1751,10 @@ public class Micropolis
 		history.pollution[120] = history.pollution[0];
 		history.money[120] = history.money[0];
 		
-		//!!!
-		history.mayapp[120] = evaluation.cityYes*100;
-		history.pop[120] = evaluation.cityPop;
-		history.migr[120] = evaluation.deltaCityPop;
+		//cambios
+		history.mayapp[120] = evaluation.cityYes*10000;
+		history.pop[120] = evaluation.cityPop*1000;
+		history.migr[120] = evaluation.deltaCityPop*1000;
 		history.avalue[120] = evaluation.cityAssValue;
 	}
 
@@ -2426,7 +2426,7 @@ public class Micropolis
 		loadHistoryArray_v1(history.crime, dis);
 		loadHistoryArray_v1(history.pollution, dis);
 		loadHistoryArray_v1(history.money, dis);
-		//!!
+		//cambios
 		loadHistoryArray_v1(history.mayapp, dis);
 		loadHistoryArray_v1(history.pop, dis);
 		loadHistoryArray_v1(history.migr, dis);
@@ -2463,7 +2463,7 @@ public class Micropolis
 		writeHistoryArray("crime-history", history.crime, out);
 		writeHistoryArray("pollution-history", history.pollution, out);
 		writeHistoryArray("money-history", history.money, out);
-		//!!
+		//cambios
 		writeHistoryArray("mayapp-history", history.mayapp, out);
 		writeHistoryArray("pop-history", history.pop, out);
 		writeHistoryArray("migr-history", history.migr, out);
