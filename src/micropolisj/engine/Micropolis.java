@@ -611,6 +611,8 @@ public class Micropolis
 
 		case 9:
 			if (cityTime % CENSUSRATE == 0) {
+				//!!
+				evaluation.cityEvaluation();
 				takeCensus();
 
 				if (cityTime % (CENSUSRATE*12) == 0) {
@@ -1281,6 +1283,11 @@ public class Micropolis
 		public int [] money = new int[240];
 		public int [] pollution = new int[240];
 		public int [] crime = new int[240];
+		//!!!
+		public int [] mayapp = new int[240];
+		public int [] pop = new int[240];
+		public int [] migr = new int[240];
+		public int [] avalue = new int[240];
 		int resMax;
 		int comMax;
 		int indMax;
@@ -1643,6 +1650,11 @@ public class Micropolis
 			history.crime[i + 1] = history.crime[i];
 			history.pollution[i + 1] = history.pollution[i];
 			history.money[i + 1] = history.money[i];
+			//!!!
+			history.mayapp[i + 1] = history.mayapp[i];
+			history.pop[i + 1] = history.pop[i];
+			history.migr[i + 1] = history.migr[i];
+			history.avalue[i + 1] = history.avalue[i];
 		}
 
 		history.resMax = resMax;
@@ -1654,6 +1666,12 @@ public class Micropolis
 		history.res[0] = resPop / 8;
 		history.com[0] = comPop;
 		history.ind[0] = indPop;
+		
+		//!!!
+		history.mayapp[0] = evaluation.cityYes*10000;
+		history.pop[0] = evaluation.cityPop*1000;
+		history.migr[0] = evaluation.deltaCityPop*1000;
+		history.avalue[0] = evaluation.cityAssValue;
 
 		crimeRamp += (crimeAverage - crimeRamp) / 4;
 		history.crime[0] = Math.min(255, crimeRamp);
@@ -1719,6 +1737,11 @@ public class Micropolis
 			history.crime[i + 1] = history.crime[i];
 			history.pollution[i + 1] = history.pollution[i];
 			history.money[i + 1] = history.money[i];
+			//!!!
+			history.mayapp[i + 1] = history.mayapp[i];
+			history.pop[i + 1] = history.pop[i];
+			history.migr[i + 1] = history.migr[i];
+			history.avalue[i + 1] = history.avalue[i];
 		}
 
 		history.res[120] = resPop / 8;
@@ -1727,6 +1750,12 @@ public class Micropolis
 		history.crime[120] = history.crime[0];
 		history.pollution[120] = history.pollution[0];
 		history.money[120] = history.money[0];
+		
+		//!!!
+		history.mayapp[120] = evaluation.cityYes*100;
+		history.pop[120] = evaluation.cityPop;
+		history.migr[120] = evaluation.deltaCityPop;
+		history.avalue[120] = evaluation.cityAssValue;
 	}
 
 	/** Road/rail maintenance cost multiplier, for various difficulty settings.
@@ -2327,6 +2356,18 @@ public class Micropolis
 			else if (tagName.equals("money-history")) {
 				loadHistoryArray_v2(history.money, in);
 			}
+			else if (tagName.equals("mayapp-history")) {
+				loadHistoryArray_v2(history.mayapp, in);
+			}
+			else if (tagName.equals("pop-history")) {
+				loadHistoryArray_v2(history.pop, in);
+			}
+			else if (tagName.equals("migr-history")) {
+				loadHistoryArray_v2(history.migr, in);
+			}
+			else if (tagName.equals("avalue-history")) {
+				loadHistoryArray_v2(history.avalue, in);
+			}
 			else if (tagName.equals("population")) {
 				resPop = Integer.parseInt(in.getAttributeValue(null, "resPop"));
 				comPop = Integer.parseInt(in.getAttributeValue(null, "comPop"));
@@ -2385,6 +2426,11 @@ public class Micropolis
 		loadHistoryArray_v1(history.crime, dis);
 		loadHistoryArray_v1(history.pollution, dis);
 		loadHistoryArray_v1(history.money, dis);
+		//!!
+		loadHistoryArray_v1(history.mayapp, dis);
+		loadHistoryArray_v1(history.pop, dis);
+		loadHistoryArray_v1(history.migr, dis);
+		loadHistoryArray_v1(history.avalue, dis);
 		loadMisc_v1(dis);
 		loadMap_v1(dis);
 		dis.close();
@@ -2417,6 +2463,11 @@ public class Micropolis
 		writeHistoryArray("crime-history", history.crime, out);
 		writeHistoryArray("pollution-history", history.pollution, out);
 		writeHistoryArray("money-history", history.money, out);
+		//!!
+		writeHistoryArray("mayapp-history", history.mayapp, out);
+		writeHistoryArray("pop-history", history.pop, out);
+		writeHistoryArray("migr-history", history.migr, out);
+		writeHistoryArray("avalue-history", history.avalue, out);
 		writeMisc(out);
 		writeMap(out);
 		out.writeEndElement(); //micropolis
