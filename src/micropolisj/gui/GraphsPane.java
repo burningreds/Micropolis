@@ -40,7 +40,13 @@ public class GraphsPane extends JPanel
 		INDPOP,
 		MONEY,
 		CRIME,
-		POLLUTION;
+		POLLUTION,
+		//cambios
+		MAYAPP,
+		POP,
+		MIGR,
+		AVALUE;
+
 	}
 	EnumMap<GraphData,JToggleButton> dataBtns = new EnumMap<GraphData,JToggleButton>(GraphData.class);
 
@@ -106,6 +112,13 @@ public class GraphsPane extends JPanel
 
 		c.gridy = 4;
 		toolsPane.add(makeDataBtn(GraphData.INDPOP), c);
+		
+		//cambios
+		c.gridy = 5;
+		toolsPane.add(makeDataBtn(GraphData.MAYAPP), c);
+		
+		c.gridy = 6;
+		toolsPane.add(makeDataBtn(GraphData.POP), c);
 
 		c.gridx = 1;
 		c.gridy = 2;
@@ -116,6 +129,13 @@ public class GraphsPane extends JPanel
 
 		c.gridy = 4;
 		toolsPane.add(makeDataBtn(GraphData.POLLUTION), c);
+		
+		//cambios
+		c.gridy = 5;
+		toolsPane.add(makeDataBtn(GraphData.MIGR), c);
+			
+		c.gridy = 6;
+		toolsPane.add(makeDataBtn(GraphData.AVALUE), c);
 
 		graphArea = new GraphArea();
 		b1.add(graphArea, BorderLayout.CENTER);
@@ -203,6 +223,11 @@ public class GraphsPane extends JPanel
 		case MONEY: return engine.history.money[pos];
 		case CRIME: return engine.history.crime[pos];
 		case POLLUTION: return engine.history.pollution[pos];
+		//cambios
+		case MAYAPP: return engine.history.mayapp[pos];
+		case POP: return engine.history.pop[pos];
+		case MIGR: return engine.history.migr[pos];
+		case AVALUE: return engine.history.avalue[pos];
 		default: throw new Error("unexpected");
 		}
 	}
